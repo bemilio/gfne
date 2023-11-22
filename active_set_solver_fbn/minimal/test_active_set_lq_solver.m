@@ -62,10 +62,10 @@ Q{T+1,1} = zeros(1+n);
 Q{T+1,2} = zeros(1+n);
 G{T+1,1} = Ga;
 G{T+1,2} = Gb;
-%H{T+1,1} = [2.5 1 0 0 0 0 0 0 0];
-H{T+1,1} = zeros(0,n+1);
-%H{T+1,2} = [2.5 0 0 0 0 1 0 0 0];
-H{T+1,2} = zeros(0,n+1);
+H{T+1,1} = [2.5 1 0 0 0 0 0 0 0];
+%H{T+1,1} = zeros(0,n+1);
+H{T+1,2} = [2.5 0 0 0 0 1 0 0 0];
+%H{T+1,2} = zeros(0,n+1);
 working_set{T+1,1} = zeros(size(Ga,1),1);
 working_set{T+1,2} = zeros(size(Gb,1),1);
 
