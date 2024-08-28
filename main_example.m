@@ -45,6 +45,7 @@ Qb(1+n+3:1+n+4,1+n+3:1+n+4) = eye(2);
 % PB is selfish but has to avoid
 
 Ga = zeros(0,1+n);
+% Gb = [-4 0 1 0 0 0 -1 0 0];
 Gb = [-4 0 1 0 0 0 -1 0 0];
 
 for t = 1:T
@@ -62,17 +63,17 @@ Q{T+1,1} = zeros(1+n);
 Q{T+1,2} = zeros(1+n);
 G{T+1,1} = Ga;
 G{T+1,2} = Gb;
-%H{T+1,1} = [2.5 1 0 0 0 0 0 0 0];
-H{T+1,1} = zeros(0,n+1);
-%H{T+1,2} = [2.5 0 0 0 0 1 0 0 0];
-H{T+1,2} = zeros(0,n+1);
+H{T+1,1} = [2.5 1 0 0 0 0 0 0 0];
+%H{T+1,1} = zeros(0,n+1);
+H{T+1,2} = [2.5 0 0 0 0 1 0 0 0];
+%H{T+1,2} = zeros(0,n+1);
 working_set{T+1,1} = zeros(size(Ga,1),1);
 working_set{T+1,2} = zeros(size(Gb,1),1);
 
 x0 = [2.5; 0; 0; 4; -2.5; -5; 0; 5]; 
 
 
-x = active_set_lq_game_solver(F,H,G,Q,N,T,m,x0,working_set, false, params);
+[x, u] = active_set_lq_game_solver(F,H,G,Q,N,T,m,x0,working_set, false, params);
 
 %%
 plot_solution(x);
